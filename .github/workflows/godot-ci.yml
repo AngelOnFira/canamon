@@ -73,7 +73,13 @@ jobs:
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/templates/${GODOT_VERSION}.stable.mono
       - name: Web Build
         run: |
-          mkdir -v -p build/web
+          apt-get update && apt-get install -y --no-install-recommends \
+            libgl1 \
+            libxcursor1 \
+            libxi6 \
+            libxinerama1 \
+            libxrandr2 \
+            xvfb
           cd $PROJECT_PATH
           godot --version
           godot -v --rendering-driver opengl3 --export-release "HTML5" ../build/web/index.html
