@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqt3cwqsymp1"]
+
+[ext_resource type="Texture2D" uid="uid://cd574c5qhvv88" path="res://prototype/characters.png" id="1_pmb61"]
+[ext_resource type="Script" path="res://prototype/Characters.gd" id="2_2rdj8"]
+[ext_resource type="Texture2D" uid="uid://bb74h8sayol1r" path="res://prototype/village background.png" id="3_42mel"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1722g"]
+albedo_texture = ExtResource("1_pmb61")
+
+[sub_resource type="QuadMesh" id="QuadMesh_nwuun"]
+material = SubResource("StandardMaterial3D_1722g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkv4i"]
+albedo_texture = ExtResource("3_42mel")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3mof7"]
+material = SubResource("StandardMaterial3D_vkv4i")
+size = Vector2(10, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Characters" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500435, 0)
+mesh = SubResource("QuadMesh_nwuun")
+script = ExtResource("2_2rdj8")
+
+[node name="Camera3D" type="Camera3D" parent="Characters"]
+transform = Transform3D(1, 0, 0, 0, 0.865894, 0.500227, 0, -0.500227, 0.865894, 0, 2.55592, 4.35273)
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_3mof7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.380844, 0.924639, 0, -0.924639, 0.380844, 0, 7.31344, 9.2085)
