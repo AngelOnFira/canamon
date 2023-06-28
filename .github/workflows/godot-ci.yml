@@ -4,7 +4,7 @@ on: push
 env:
   GODOT_VERSION: 4.0.3
   EXPORT_NAME: canamon
-  PROJECT_PATH: canamon
+  PROJECT_PATH: .
 
 jobs:
   export-windows:
